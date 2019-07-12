@@ -1,7 +1,7 @@
 # Cat vs Dog Image Classifier with Tensorflow.js
 Classify a dog or cat image inside any browser. The classifier uses a pre-trained model built with Keras that was then exported to Tensorflow.js. 
 
-![Screenshot](img/cat-vs-dog-classifier.png) 
+<!-- ![Screenshot](img/cat-vs-dog-classifier.png) -->
 
 ## Getting Started
 - `git clone https://github.com/bigdatasg/WoofOrMeow.git`
