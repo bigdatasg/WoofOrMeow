@@ -2,14 +2,10 @@ var model = undefined;
 const classifierElement = document.getElementById('classifier');
 const loaderElement = document.getElementById('loader');
 
-async function initialize() {
-
-    model = await tf.loadLayersModel('usable-model/model.json');
-    classifierElement.style.display = 'block';
-    loaderElement.style.display = 'none';
-
-    document.getElementById('predict').addEventListener('click', () => predict());
-
+function changeImage() {
+    var imageDisplay = document.getElementById('img');
+    var uploadedImage = document.getElementById('my-file-selector').files[0];
+    imageDisplay.src = URL.createObjectURL(uploadedImage);
 }
 
 async function predict () {
@@ -20,22 +16,26 @@ async function predict () {
 
     if (prediction[0] == 0) {
 
-        alert("You uploaded a dog!");
+        alert("You uploaded a dog! 🐶");
 
     } else if (prediction[0] == 1) {
 
-        alert("You uploaded a cat!");
+        alert("You uploaded a cat! 🐱");
 
     } else {
-        alert("Hummm... a weird error occurred.");
+        alert("Something went wrong... AS USUAL 😇");
     }
 
 }
 
-function changeImage() {
-    var imageDisplay = document.getElementById('img');
-    var uploadedImage = document.getElementById('my-file-selector').files[0];
-    imageDisplay.src = URL.createObjectURL(uploadedImage);
+async function initialize() {
+
+    model = await tf.loadLayersModel('usable-model/model.json');
+    classifierElement.style.display = 'block';
+    loaderElement.style.display = 'none';
+
+    document.getElementById('predict').addEventListener('click', () => predict());
+
 }
 
 initialize();
